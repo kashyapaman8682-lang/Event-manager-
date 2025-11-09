@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sign Up — Event Manager</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-icon">🎟️</div>
+      <div class="brand-text">
+        <span class="brand-title">Event Manager</span>
+        <span class="brand-sub">Luxury Experiences</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+      <a href="booking.html" data-en="Book" data-hi="बुक करें">Book</a>
+      <a href="about.html" data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+      <select id="languageSelect" class="lang-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </nav>
+  </header>
+
+  <main class="auth-page" data-aos="fade-up">
+    <div class="auth-card">
+      <h2 data-en="Create Account" data-hi="खाता बनाएं"></h2>
+
+      <form id="signupForm">
+        <input id="suName" type="text" placeholder="Full name" required>
+        <input id="suEmail" type="email" placeholder="Email" required>
+        <input id="suPass" type="password" placeholder="Password" required>
+        <button type="submit" class="btn-gradient" data-en="Sign Up" data-hi="साइन अप">Sign Up</button>
+        <p class="muted" data-en="Already have an account?" data-hi="पहले से खाता है?">Already have an account?
+          <a href="login.html" data-en="Login" data-hi="लॉगिन">Login</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 700 });
+    document.getElementById('signupForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('suName').value.trim();
+      const email = document.getElementById('suEmail').value.trim();
+      // for demo store user locally
+      localStorage.setItem('em_user', name);
+      localStorage.setItem('em_email', email);
+      alert((localStorage.getItem('em_lang') === 'hi') ? 'साइन अप सफल' : 'Sign up successful');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

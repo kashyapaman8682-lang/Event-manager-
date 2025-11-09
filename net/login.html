@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login — Event Manager</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-icon">🎟️</div>
+      <div class="brand-text">
+        <span class="brand-title">Event Manager</span>
+        <span class="brand-sub">Luxury Experiences</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+      <a href="booking.html" data-en="Book" data-hi="बुक करें">Book</a>
+      <a href="about.html" data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+      <select id="languageSelect" class="lang-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </nav>
+  </header>
+
+  <main class="auth-page" data-aos="fade-up">
+    <div class="auth-card">
+      <h2 data-en="Welcome Back" data-hi="फिर से स्वागत है"></h2>
+
+      <form id="loginForm">
+        <label class="label"><span data-en="Username" data-hi="उपयोगकर्ता नाम">Username</span></label>
+        <input id="loginUser" type="text" placeholder="username" required>
+
+        <label class="label"><span data-en="Password" data-hi="पासवर्ड">Password</span></label>
+        <input id="loginPass" type="password" placeholder="password" required>
+
+        <button type="submit" class="btn-gradient" data-en="Login" data-hi="लॉगिन">Login</button>
+
+        <p class="muted" data-en="Don't have an account?" data-hi="खाता नहीं है?">Don't have an account?
+          <a href="signup.html" data-en="Sign up" data-hi="साइन अप">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><p class="muted">support@eventmanager.com</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 700 });
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Basic client-side mock login: just store username
+      const user = document.getElementById('loginUser').value.trim();
+      localStorage.setItem('em_user', user);
+      alert((localStorage.getItem('em_lang') === 'hi') ? 'लॉगिन सफल' : 'Login successful');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

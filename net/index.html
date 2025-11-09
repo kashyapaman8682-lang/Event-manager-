@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Event Manager — Luxury Events</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-icon">🎟️</div>
+      <div class="brand-text">
+        <span class="brand-title">Event Manager</span>
+        <span class="brand-sub">Luxury Experiences</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+      <a href="booking.html" data-en="Book" data-hi="बुक करें">Book</a>
+      <a href="about.html" data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+      <a href="login.html" class="btn-outline" data-en="Login" data-hi="लॉगिन">Login</a>
+
+      <select id="languageSelect" aria-label="Language selector" class="lang-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </nav>
+  </header>
+
+  <!-- HERO: Swiper -->
+  <section class="hero">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1529634899673-61bfcfdb6ca5?auto=format&fit=crop&w=1600&q=80')">
+          <div class="hero-overlay">
+            <h1 data-en="Experience Luxury Events" data-hi="लक्ज़री इवेंट्स का अनुभव करें"></h1>
+            <p data-en="Curated weddings, concerts & premium gatherings." data-hi="क्यूरेटेड शादियाँ, कंसर्ट और प्रीमियम गेदरिंग।"></p>
+            <a href="booking.html" class="btn-gradient" data-en="Book Now" data-hi="अभी बुक करें"></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1605276372048-b4b1d39f7d7a?auto=format&fit=crop&w=1600&q=80')">
+          <div class="hero-overlay">
+            <h1 data-en="VIP Concert Experiences" data-hi="वीआईपी कंसर्ट अनुभव"></h1>
+            <p data-en="Sound, lights, and red-carpet treatment." data-hi="साउंड, लाइट और रेड-कारपेट अनुभव।"></p>
+            <a href="booking.html" class="btn-gradient" data-en="Explore Concerts" data-hi="कंसर्ट देखें"></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1505842465776-3b4953ca4f93?auto=format&fit=crop&w=1600&q=80')">
+          <div class="hero-overlay">
+            <h1 data-en="Exclusive Corporate Events" data-hi="विशेष कॉर्पोरेट इवेंट्स"></h1>
+            <p data-en="Impress clients with seamless execution." data-hi="क्लाइंट्स को प्रभावित करें, बिना झंझट के आयोजन।"></p>
+            <a href="booking.html" class="btn-gradient" data-en="Plan Corporate" data-hi="कॉर्पोरेट योजना"></a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- EVENTS SECTION: Swiper + grid -->
+  <section class="section events-section" id="events" data-aos="fade-up">
+    <div class="section-head">
+      <h2 data-en="Curated Events" data-hi="क्यूरेटेड इवेंट्स"></h2>
+      <p class="muted" data-en="Choose from premium event categories — curated for memorable moments."
+         data-hi="यादगार पलों के लिए क्यूरेटेड प्रीमियम इवेंट श्रेणियाँ चुनें।"></p>
+    </div>
+
+    <!-- events swiper -->
+    <div class="swiper events-swiper" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+        <!-- card template -->
+        <div class="swiper-slide event-slide">
+          <div class="card vip">
+            <img src="https://images.unsplash.com/photo-1529634899673-61bfcfdb6ca5?auto=format&fit=crop&w=800&q=60" alt="Wedding">
+            <div class="card-body">
+              <h3 data-en="Luxury Wedding" data-hi="लक्ज़री शादी">Luxury Wedding</h3>
+              <p data-en="Bespoke decor, gourmet catering, full VIP coordination."
+                 data-hi="बेस्पोक डेकोर, गॉरमेट कैटरिंग, पूरा वीआईपी समन्वय।"></p>
+              <div class="card-actions">
+                <a href="booking.html" class="btn-small" data-en="Book" data-hi="बुक करें"><i class="fa-solid fa-ticket"></i> Book</a>
+                <button class="btn-outline" onclick="openQuickView(this)" data-title-en="Luxury Wedding" data-desc-en="Bespoke decor, gourmet catering, full VIP coordination." data-title-hi="लक्ज़री शादी" data-desc-hi="बेस्पोक डेकोर, गॉरमेट कैटरिंग, पूरा वीआईपी समन्वय।"><i class="fa-solid fa-eye"></i> Quick View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide event-slide">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1596733430284-f7437764b8a3?auto=format&fit=crop&w=800&q=60" alt="Birthday">
+            <div class="card-body">
+              <h3 data-en="Signature Birthday" data-hi="सिग्नेचर जन्मदिन">Signature Birthday</h3>
+              <p data-en="Themes, cakes, entertainers & surprise moments."
+                 data-hi="थीम्स, केक्स, एंटरटेनर्स और सरप्राइज़ मोमेंट्स।"></p>
+              <div class="card-actions">
+                <a href="booking.html" class="btn-small" data-en="Book" data-hi="बुक करें"><i class="fa-solid fa-ticket"></i> Book</a>
+                <button class="btn-outline" onclick="openQuickView(this)" data-title-en="Signature Birthday" data-desc-en="Themes, cakes, entertainers & surprise moments." data-title-hi="सिग्नेचर जन्मदिन" data-desc-hi="थीम्स, केक्स, एंटरटेनर्स और सरप्राइज़ मोमेंट्स।"><i class="fa-solid fa-eye"></i> Quick View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide event-slide">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1612296722637-bf72fbe58a38?auto=format&fit=crop&w=800&q=60" alt="Concert">
+            <div class="card-body">
+              <h3 data-en="VIP Concert" data-hi="वीआईपी कंसर्ट">VIP Concert</h3>
+              <p data-en="Premium seating, backstage passes & hospitality."
+                 data-hi="प्रीमियम सीटिंग, बैकस्टेज पास और हॉस्पिटैलिटी।"></p>
+              <div class="card-actions">
+                <a href="booking.html" class="btn-small" data-en="Book" data-hi="बुक करें"><i class="fa-solid fa-ticket"></i> Book</a>
+                <button class="btn-outline" onclick="openQuickView(this)" data-title-en="VIP Concert" data-desc-en="Premium seating, backstage passes & hospitality." data-title-hi="वीआईपी कंसर्ट" data-desc-hi="प्रीमियम सीटिंग, बैकस्टेज पास और हॉस्पिटैलिटी।"><i class="fa-solid fa-eye"></i> Quick View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide event-slide">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1509474520651-53cf6a5b53b3?auto=format&fit=crop&w=800&q=60" alt="Corporate">
+            <div class="card-body">
+              <h3 data-en="Corporate Gala" data-hi="कॉर्पोरेट गाला">Corporate Gala</h3>
+              <p data-en="Executive planning, AV, and premium catering."
+                 data-hi="एग्जीक्यूटिव प्लानिंग, AV और प्रीमियम कैटरिंग।"></p>
+              <div class="card-actions">
+                <a href="booking.html" class="btn-small" data-en="Book" data-hi="बुक करें"><i class="fa-solid fa-ticket"></i> Book</a>
+                <button class="btn-outline" onclick="openQuickView(this)" data-title-en="Corporate Gala" data-desc-en="Executive planning, AV, and premium catering." data-title-hi="कॉर्पोरेट गाला" data-desc-hi="एग्जीक्यूटिव प्लानिंग, AV और प्रीमियम कैटरिंग।"><i class="fa-solid fa-eye"></i> Quick View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- QUICKVIEW MODAL -->
+  <div id="quickViewModal" class="modal" aria-hidden="true">
+    <div class="modal-inner" role="dialog" aria-modal="true">
+      <button class="modal-close" onclick="closeQuickView()"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="qvTitle"></h3>
+      <p id="qvDesc"></p>
+      <div class="modal-actions">
+        <a href="booking.html" class="btn-gradient" data-en="Book This" data-hi="इसे बुक करें">Book This</a>
+        <button class="btn-outline" onclick="closeQuickView()" data-en="Close" data-hi="बंद करें">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong data-en="Event Manager" data-hi="इवेंट मैनेजर">Event Manager</strong>
+        <p class="muted" data-en="Premium event planning & experiences" data-hi="प्रीमियम इवेंट योजना और अनुभव">Premium event planning & experiences</p>
+      </div>
+
+      <div>
+        <p class="muted" data-en="Contact" data-hi="संपर्क">Contact</p>
+        <p class="muted">support@eventmanager.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2025 Event Manager. All rights reserved." data-hi="© 2025 इवेंट मैनेजर। सर्वाधिकार सुरक्षित।">© 2025 Event Manager. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Libraries: Swiper, AOS, Font Awesome already linked-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Local JS -->
+  <script src="script.js"></script>
+  <script>
+    // init Swiper for hero
+    const heroSwiper = new Swiper('.hero-swiper', {
+      loop: true,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      speed: 800,
+      pagination: { el: '.hero-swiper .swiper-pagination', clickable: true },
+      navigation: { nextEl: '.hero-swiper .swiper-button-next', prevEl: '.hero-swiper .swiper-button-prev' }
+    });
+
+    // init Swiper for events
+    const eventsSwiper = new Swiper('.events-swiper', {
+      slidesPerView: 1.1,
+      spaceBetween: 18,
+      breakpoints: { 640: { slidesPerView: 2.1 }, 992: { slidesPerView: 3.1 } },
+      pagination: { el: '.events-swiper .swiper-pagination', clickable: true }
+    });
+
+    // init AOS
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* ---------- base ---------- */
+:root{
+  --bg:#0f0f10;
+  --panel:#151516;
+  --muted:#bdbdbd;
+  --accent1:#ff3c3c;
+  --accent2:#ff7b00;
+  --glass: rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#070707 0%, #0f0f10 100%);
+  color:#efefef;
+  font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-icon{font-size:26px}
+.brand-text .brand-title{display:block;font-weight:700;font-size:1.05rem}
+.brand-text .brand-sub{display:block;font-size:0.75rem;color:var(--muted)}
+.main-nav{display:flex;gap:12px;align-items:center}
+.main-nav a{color:inherit;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;opacity:0.95}
+.main-nav a:hover{background:var(--glass);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px}
+.lang-select{background:#141416;color:#fff;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+
+/* hero */
+.hero{height:72vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero .hero-swiper{width:100%;height:100%}
+.hero-slide{display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;height:72vh;position:relative}
+.hero-overlay{
+  position:relative;max-width:1100px;text-align:center;padding:40px;border-radius:12px;background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+  backdrop-filter: blur(6px);
+}
+.hero-overlay h1{font-size:2.6rem;margin:0 0 8px;color:white;letter-spacing:0.6px}
+.hero-overlay p{margin:0 0 18px;color:var(--muted);font-size:1.05rem}
+.btn-gradient{display:inline-block;padding:12px 26px;border-radius:28px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(255,59,60,0.14)}
+
+/* sections */
+.section{padding:48px 20px}
+.section .section-head{max-width:1100px;margin:0 auto 28px;text-align:center}
+.section h2{font-size:1.8rem;margin:6px 0}
+.muted{color:var(--muted);font-size:0.95rem}
+
+/* events swiper & cards */
+.events-section{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding-bottom:40px}
+.swiper{padding:8px 10px}
+.event-slide{display:flex;justify-content:center}
+.card{width:260px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,0.6);transition:transform .28s ease, box-shadow .28s ease}
+.card.vip{box-shadow:0 14px 40px rgba(255,100,60,0.12)}
+.card img{width:100%;height:150px;object-fit:cover;display:block}
+.card-body{padding:14px}
+.card-body h3{margin:0 0 8px;color:var(--accent2)}
+.card-body p{margin:0 0 12px;color:var(--muted);font-size:0.92rem}
+.card-actions{display:flex;gap:8px;align-items:center}
+.btn-small{padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;text-decoration:none;font-weight:700}
+.btn-outline{padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+/* modal quickview */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}
+.modal[aria-hidden="false"]{display:flex}
+.modal-inner{background:linear-gradient(180deg,#161616,#111);padding:24px;border-radius:12px;max-width:720px;width:100;box-shadow:0 20px 80px rgba(0,0,0,0.7);position:relative}
+.modal-close{position:absolute;right:18px;top:18px;border:none;background:transparent;color:#fff;font-size:18px}
+.modal-actions{display:flex;gap:12px;margin-top:18px}
+
+/* forms, auth, booking */
+.auth-page{display:flex;align-items:center;justify-content:center;height:70vh;padding:20px}
+.auth-card{background:linear-gradient(180deg,#121212,#0f0f10);padding:26px;border-radius:12px;max-width:420px;width:100;box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+.auth-card h2{margin:0 0 12px}
+.auth-card input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;background:#121212;color:#fff}
+.auth-card .label{display:block;text-align:left;margin-top:8px;color:var(--muted);font-size:0.9rem}
+.btn-gradient{cursor:pointer;border:none;display:inline-block}
+.muted{color:var(--muted)}
+
+.booking-section .booking-form{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px;padding:18px;background:linear-gradient(180deg,#121212,#0f0f10);border-radius:12px}
+.booking-form input, .booking-form select, .booking-form textarea{padding:12px;border-radius:10px;border:none;background:#0f0f10;color:#fff}
+.booking-actions{display:flex;gap:12px;align-items:center;justify-content:flex-start;margin-top:8px}
+
+/* confirmation card */
+.confirm-card{max-width:720px;margin:18px auto;padding:20px;background:linear-gradient(180deg,#121212,#0f0f10);border-radius:12px}
+.confirm-card p{margin:8px 0;color:var(--muted)}
+
+/* about & contact cards */
+.about-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.about-card{background:linear-gradient(180deg,#161616,#0f0f10);padding:18px;border-radius:12px;max-width:300px;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,0.6)}
+.about-card .icon-lg{font-size:34px;color:var(--accent1);margin-bottom:10px}
+
+/* footer */
+.site-footer{margin-top:36px;border-top:1px solid rgba(255,255,255,0.03);padding:20px 18px}
+.footer-inner{display:flex;justify-content:space-between;max-width:1100px;margin:0 auto}
+.footer-bottom{margin-top:12px;text-align:center;color:var(--muted)}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-overlay h1{font-size:2rem}
+  .event-slide .card{width:220px}
+}
+@media (max-width:640px){
+  .main-nav a{display:none}
+  .brand-text .brand-title{font-size:1rem}
+  .hero-overlay{padding:18px}
+  .footer-inner{flex-direction:column;gap:12px}
+  .about-cards{flex-direction:column;align-items:center}
+}

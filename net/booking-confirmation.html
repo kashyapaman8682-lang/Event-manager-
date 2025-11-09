@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Booking Confirmation — Event Manager</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo-icon">🎟️</div><div class="brand-text"><span class="brand-title">Event Manager</span></div></div>
+    <nav class="main-nav">
+      <a href="index.html" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+      <a href="booking.html" data-en="Book" data-hi="बुक करें">Book</a>
+      <a href="about.html" data-en="About" data-hi="हमारे बारे में">About</a>
+      <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+      <select id="languageSelect" class="lang-select"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+    </nav>
+  </header>
+
+  <main class="section confirmation-section" data-aos="fade-up">
+    <div class="section-head">
+      <h2 data-en="Booking Confirmed!" data-hi="बुकिंग पुष्टि हो गई!">Booking Confirmed!</h2>
+      <p class="muted" data-en="Thank you — your booking has been received. We'll contact you soon." data-hi="धन्यवाद — आपकी बुकिंग प्राप्त हो गई है। हम आपको शीघ्र संपर्क करेंगे।"></p>
+    </div>
+
+    <div class="confirm-card">
+      <p><strong data-en="Name:" data-hi="नाम:">Name:</strong> <span id="confirmName"></span></p>
+      <p><strong data-en="Email:" data-hi="ईमेल:">Email:</strong> <span id="confirmEmail"></span></p>
+      <p><strong data-en="Phone:" data-hi="फ़ोन नंबर:">Phone:</strong> <span id="confirmPhone"></span></p>
+      <p><strong data-en="Event Type:" data-hi="इवेंट प्रकार:">Event Type:</strong> <span id="confirmType"></span></p>
+      <p><strong data-en="Date:" data-hi="तारीख:">Date:</strong> <span id="confirmDate"></span></p>
+      <p><strong data-en="Details:" data-hi="विवरण:">Details:</strong> <span id="confirmDetails"></span></p>
+
+      <div class="confirm-actions">
+        <a href="index.html" class="btn-outline" data-en="Back to Home" data-hi="मुख्य पृष्ठ पर वापस जाएँ">Back to Home</a>
+        <a href="booking.html" class="btn-gradient" data-en="Book Another" data-hi="एक और बुक करें">Book Another</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><p class="muted">support@eventmanager.com</p></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 700 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('confirmName').textContent = localStorage.getItem('bookingName') || '';
+      document.getElementById('confirmEmail').textContent = localStorage.getItem('bookingEmail') || '';
+      document.getElementById('confirmPhone').textContent = localStorage.getItem('bookingPhone') || '';
+      document.getElementById('confirmType').textContent = localStorage.getItem('bookingType') || '';
+      document.getElementById('confirmDate').textContent = localStorage.getItem('bookingDate') || '';
+      document.getElementById('confirmDetails').textContent = localStorage.getItem('bookingDetails') || '';
+    });
+  </script>
+</body>
+</html>

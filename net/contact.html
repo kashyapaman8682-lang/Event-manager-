@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact — Event Manager</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo-icon">🎟️</div><div class="brand-text"><span class="brand-title">Event Manager</span></div></div>
+    <nav class="main-nav">
+      <a href="index.html" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+      <a href="booking.html" data-en="Book" data-hi="बुक करें">Book</a>
+      <a href="about.html" data-en="About" data-hi="हमारे बारे में">About</a>
+      <select id="languageSelect" class="lang-select"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+    </nav>
+  </header>
+
+  <main class="section contact-section" data-aos="fade-up">
+    <div class="section-head">
+      <h2 data-en="Contact Us" data-hi="संपर्क करें">Contact Us</h2>
+      <p class="muted" data-en="Questions or custom requests? Reach out for a personalised quote." data-hi="प्रश्न या कस्टम अनुरोध? व्यक्तिगत उद्धरण के लिए संपर्क करें।"></p>
+    </div>
+
+    <div class="contact-container">
+      <form id="contactForm" class="contact-form" data-aos="fade-right">
+        <input id="cName" type="text" placeholder="Full name / पूरा नाम" required>
+        <input id="cEmail" type="email" placeholder="Email / ईमेल" required>
+        <textarea id="cMessage" rows="5" placeholder="Message / संदेश" required></textarea>
+        <button type="submit" class="btn-gradient" data-en="Send Message" data-hi="संदेश भेजें">Send Message</button>
+      </form>
+
+      <aside class="contact-info" data-aos="fade-left">
+        <h3 data-en="Office" data-hi="ऑफिस">Office</h3>
+        <p>45 Luxury Lane, New Delhi, India</p>
+        <h3 data-en="Phone" data-hi="फोन">Phone</h3>
+        <p>+91 98765 43210</p>
+        <h3 data-en="Email" data-hi="ईमेल">Email</h3>
+        <p>support@eventmanager.com</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><p class="muted">support@eventmanager.com</p></div></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 700 });
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // store or send - here we simply save local
+      localStorage.setItem('contact_last_name', document.getElementById('cName').value.trim());
+      alert((localStorage.getItem('em_lang') === 'hi') ? 'संदेश भेजा गया। हम शीघ्र संपर्क करेंगे।' : 'Message sent. We will contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
